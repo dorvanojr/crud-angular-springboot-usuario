@@ -20,7 +20,7 @@ import java.util.List;
 @RestController
 @RequestMapping("/api/servicos-prestados")
 @RequiredArgsConstructor
-public class ServicoPrestadoController {
+public class ServicoController {
 
     private final ClienteRepository clienteRepository;
     private final ServicoPrestadoRepository repository;
