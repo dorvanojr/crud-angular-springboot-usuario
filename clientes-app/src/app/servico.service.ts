@@ -1,6 +1,6 @@
-import { ServicoPrestadoBusca } from './servico-prestado/servico-prestado-lista/servicoPrestadoBusca';
+import { ServicoPrestadoBusca } from './servico/servico-lista/servicoBusca';
 import { Observable } from 'rxjs';
-import { ServicoPrestado } from './servico-prestado/servicoPrestado';
+import { Servico } from './servico/servico';
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { environment } from '../environments/environment';
@@ -11,12 +11,12 @@ import { environment } from '../environments/environment';
 })
 export class ServicoPrestadoService {
 
-  apiURL: string = environment.apiURLBase + '/api/servicos-prestados';
+  apiURL: string = environment.apiURLBase + '/api/servicos';
 
   constructor(private http: HttpClient) { }
 
-  salvar(servicoPrestado : ServicoPrestado) : Observable<ServicoPrestado>{
-    return this.http.post<ServicoPrestado>(this.apiURL, servicoPrestado);
+  salvar(servico : Servico) : Observable<Servico>{
+    return this.http.post<Servico>(this.apiURL, servico);
   }
 
   buscar(nome: string, mes: number) : Observable<ServicoPrestadoBusca[]> {

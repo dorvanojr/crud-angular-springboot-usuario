@@ -5,11 +5,11 @@ import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.server.ResponseStatusException;
 
-import br.com.gs3.app.dto.ServicoPrestadoDTO;
+import br.com.gs3.app.dto.ServicoDTO;
 import br.com.gs3.app.model.Cliente;
-import br.com.gs3.app.model.ServicoPrestado;
+import br.com.gs3.app.model.Servico;
 import br.com.gs3.app.repository.ClienteRepository;
-import br.com.gs3.app.repository.ServicoPrestadoRepository;
+import br.com.gs3.app.repository.ServicoRepository;
 import br.com.gs3.app.util.BigDecimalConverter;
 
 import javax.validation.Valid;
@@ -18,17 +18,17 @@ import java.time.format.DateTimeFormatter;
 import java.util.List;
 
 @RestController
-@RequestMapping("/api/servicos-prestados")
+@RequestMapping("/api/servicos")
 @RequiredArgsConstructor
 public class ServicoController {
 
     private final ClienteRepository clienteRepository;
-    private final ServicoPrestadoRepository repository;
+    private final ServicoRepository repository;
     private final BigDecimalConverter bigDecimalConverter;
 
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
-    public ServicoPrestado salvar(@RequestBody @Valid ServicoPrestadoDTO dto){
+    public Servico salvar(@RequestBody @Valid ServicoDTO dto){
         LocalDate data = LocalDate.parse(dto.getData(), DateTimeFormatter.ofPattern("dd/MM/yyyy"));
         Integer idCliente = dto.getIdCliente();
 
@@ -38,7 +38,7 @@ public class ServicoController {
                     .orElseThrow(() ->
                             new ResponseStatusException(HttpStatus.BAD_REQUEST, "Cliente inexistente"));
 
-        ServicoPrestado sp = new ServicoPrestado();
+        Servico sp = new Servico();
         sp.setDescricao(dto.getDescricao());
         sp.setData(data);
         sp.setCliente(cliente);
@@ -48,7 +48,7 @@ public class ServicoController {
     }
 
     @GetMapping
-    public List<ServicoPrestado> pesquisar(
+    public List<Servico> pesquisar(
             @RequestParam(value = "nome", required = false, defaultValue = "") String nome,
             @RequestParam(value = "mes", required = false) Integer mes
             ){

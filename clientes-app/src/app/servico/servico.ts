@@ -1,6 +1,6 @@
 //import { prependOnceListener } from "process";
 
-export class ServicoPrestado{
+export class Servico{
     descricao:string;
     preco:string;
     data:string;

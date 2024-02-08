@@ -1,18 +1,18 @@
-import { ServicoPrestado } from './../servicoPrestado';
+import { Servico } from '../servico';
 import { Component, OnInit } from '@angular/core';
 import { Cliente } from '../../clientes/cliente';
 import { ClientesService } from '../../clientes.service';
-import { ServicoPrestadoService } from '../../servico-prestado.service';
+import { ServicoPrestadoService } from '../../servico.service';
 
 @Component({
-  selector: 'app-servico-prestado-form',
-  templateUrl: './servico-prestado-form.component.html',
-  styleUrls: ['./servico-prestado-form.component.css']
+  selector: 'app-servico-form',
+  templateUrl: './servico-form.component.html',
+  styleUrls: ['./servico-form.component.css']
 })
-export class ServicoPrestadoFormComponent implements OnInit {
+export class ServicoFormComponent implements OnInit {
 
   clientes: Cliente[] = [];
-  servico: ServicoPrestado;
+  servico: Servico;
   success: boolean = false;
   errors: String[];
 
@@ -20,7 +20,7 @@ export class ServicoPrestadoFormComponent implements OnInit {
     private clienteService : ClientesService,
     private service : ServicoPrestadoService
   ) {
-    this.servico = new ServicoPrestado();
+    this.servico = new Servico();
    }
 
   ngOnInit(): void {
@@ -35,7 +35,7 @@ export class ServicoPrestadoFormComponent implements OnInit {
       .subscribe(response => {
         this.success = true;
         this.errors = null;
-        this.servico = new ServicoPrestado();
+        this.servico = new Servico();
       }, errorResponse => { 
         this.success = false;
         this.errors = errorResponse.error.errors;

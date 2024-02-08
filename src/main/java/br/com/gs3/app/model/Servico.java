@@ -10,7 +10,7 @@ import java.time.LocalDate;
 
 @Entity
 @Data
-public class ServicoPrestado {
+public class Servico {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

@@ -1,13 +1,13 @@
-import { ServicoPrestadoBusca } from './servicoPrestadoBusca';
+import { ServicoPrestadoBusca } from './servicoBusca';
 import { Component, OnInit } from '@angular/core';
-import { ServicoPrestadoService } from '../../servico-prestado.service';
+import { ServicoPrestadoService } from '../../servico.service';
 
 @Component({
-  selector: 'app-servico-prestado-lista',
-  templateUrl: './servico-prestado-lista.component.html',
-  styleUrls: ['./servico-prestado-lista.component.css']
+  selector: 'app-servico-lista',
+  templateUrl: './servico-lista.component.html',
+  styleUrls: ['./servico-lista.component.css']
 })
-export class ServicoPrestadoListaComponent implements OnInit {
+export class ServicoListaComponent implements OnInit {
 
   nome: string;
   mes: number;

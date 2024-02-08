@@ -8,7 +8,7 @@ import javax.validation.constraints.NotNull;
 
 @Data
 @NoArgsConstructor
-public class ServicoPrestadoDTO {
+public class ServicoDTO {
     @NotEmpty(message = "{campo.descricao.obrigatorio}")
     private String descricao;
 

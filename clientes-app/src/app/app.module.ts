@@ -1,7 +1,7 @@
 import { TokenInterceptor } from './token.interceptor';
 
 import { AuthService } from './auth.service';
-import { ServicoPrestadoModule } from './servico-prestado/servico-prestado.module';
+import { ServicoModule } from './servico/servico.module';
 
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
@@ -15,7 +15,7 @@ import { TemplateModule } from './template/TemplateModule'
 import { HomeComponent } from './home/home.component'
 import { ClientesModule } from './clientes/clientes.module'
 import { ClientesService } from './clientes.service';
-import { ServicoPrestadoService } from './servico-prestado.service';
+import { ServicoPrestadoService } from './servico.service';
 import { LoginComponent } from './login/login.component';
 import { LayoutComponent } from './layout/layout.component'
 
@@ -32,7 +32,7 @@ import { LayoutComponent } from './layout/layout.component'
     AppRoutingModule,
     TemplateModule,
     ClientesModule,
-    ServicoPrestadoModule,
+    ServicoModule,
     FormsModule
   ],
   providers: [
